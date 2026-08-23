@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Furion">
+  <defs>
+    <linearGradient id="g" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00c8ff"/>
+      <stop offset=".52" stop-color="#ff1dbf"/>
+      <stop offset="1" stop-color="#f5ff00"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#060606"/>
+  <path d="M15 13h39v10H28v7h21v10H28v14H15V13Z" fill="url(#g)"/>
+  <path d="M15 36 54 17v9L15 45v-9Z" fill="#060606"/>
+</svg>
