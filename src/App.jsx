@@ -1,12 +1,9 @@
 const services = [
-  "Informática e manutenção",
-  "Comunicação visual",
-  "Envelopamento em geral",
-  "Designer gráfico",
-  "Cortes laser / router",
-  "Impressão 3D",
-  "Câmeras IP Wi-Fi",
-  "Insulfilm",
+  {name:"FURION GRAPHIC",items:"Design gráfico, comunicação visual, envelopamento, insulfilm e cortes laser / router."},
+  {name:"FURION 3D",items:"Impressão 3D sob demanda, chaveiros, placas PIX, protótipos e peças funcionais."},
+  {name:"FURION DIGITAL",items:"Sites, landing pages, catálogos digitais e sistemas personalizados."},
+  {name:"FURION TECH",items:"Informática, manutenção, upgrades e câmeras IP Wi-Fi."},
+  {name:"FURION PERSONALIZADOS",items:"Brindes e projetos especiais. Disponibilidade mediante consulta.",consult:true},
 ];
 
 const projects = [
@@ -40,6 +37,7 @@ export default function App() {
         </a>
         <nav aria-label="Navegação principal">
           <a href="#servicos">Serviços</a>
+          <a href="#impressao3d">Impressão 3D</a>
           <a href="#projetos">Projetos</a>
           <a href="#contato">Contato</a>
         </nav>
@@ -127,14 +125,22 @@ export default function App() {
         </div>
         <div className="service-pills">
           {services.map((service, index) => (
-            <article key={service}>
+            <article key={service.name}>
               <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{service}</h3>
+              <h3>{service.name}</h3>
+              <p>{service.items}</p>
+              <a className="sector-link" href={`https://wa.me/5544998705407?text=${encodeURIComponent("Olá! Gostaria de consultar os serviços de " + service.name)}`} target="_blank" rel="noreferrer">{service.consult ? "Consultar disponibilidade" : "Solicitar orçamento"} ↗</a>
             </article>
           ))}
         </div>
       </section>
 
+      <section className="print-section" id="impressao3d">
+        <p className="eyebrow"><span /> FURION 3D</p>
+        <h2>Do digital ao real.</h2>
+        <p>Impressão sob demanda com Bambu Lab A1. Envie sua ideia ou arquivo para avaliação de viabilidade, material e orçamento.</p>
+        <div className="print-grid">{["Chaveiros e brindes","Placas PIX e displays","Protótipos e peças funcionais","Objetos decorativos"].map(item => <article key={item}><h3>{item}</h3><a className="sector-link" href={`https://wa.me/5544998705407?text=${encodeURIComponent("Olá! Gostaria de um orçamento 3D: " + item)}`} target="_blank" rel="noreferrer">Consultar ↗</a></article>)}</div>
+      </section>
       <section className="portfolio" id="projetos">
         <div className="portfolio-heading">
           <div>
