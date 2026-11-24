@@ -174,28 +174,28 @@ export default function App() {
         </div>
       </section>
 
-      <section className="process">
+      <section className="process" id="como-funciona">
         <div className="section-heading">
           <p className="eyebrow"><span /> Simples e direto</p>
-          <h2>Do orçamento à entrega, sem complicação.</h2>
+          <h2>Do orçamento à entrega.</h2><p className="process-intro">Três etapas para transformar sua ideia em realidade.</p>
         </div>
         <div className="process-grid">
           <article>
-            <span>01</span>
+            <span className="step-number">01</span>
             <h3>Conte sua ideia</h3>
             <p>Chame no WhatsApp, envie referências e explique o que precisa.</p>
           </article>
           <article>
-            <span>02</span>
+            <span className="step-number">02</span>
             <h3>Receba a solução</h3>
             <p>Avaliamos o projeto, os materiais e apresentamos seu orçamento.</p>
           </article>
           <article>
-            <span>03</span>
+            <span className="step-number">03</span>
             <h3>Veja acontecer</h3>
             <p>Produzimos com cuidado e combinamos a instalação ou entrega.</p>
           </article>
-        </div>
+        </div><div className="process-action"><a className="button button-primary" href="#orcamento">Começar meu projeto ↗</a></div>
       </section>
 
       <ToolsPanel/><section className="quote-section" id="orcamento"><p className="eyebrow"><span/> Central de orçamentos</p><h2>Vamos planejar seu projeto.</h2><form onSubmit={e=>{e.preventDefault();window.location.href=quoteUrl;}}><fieldset><legend>Quais serviços você precisa?</legend><div className="quote-options">{services.map(s=><label key={s.name}><input type="checkbox" checked={selected.includes(s.name)} onChange={e=>setSelected(prev=>e.target.checked?[...prev,s.name]:prev.filter(n=>n!==s.name))}/>{s.name}{s.consult?" (sob consulta)":""}</label>)}</div></fieldset><label>Seu nome<input value={customer} onChange={e=>setCustomer(e.target.value)} required autoComplete="name"/></label><label>Conte um pouco sobre seu projeto<textarea value={details} onChange={e=>setDetails(e.target.value)} rows={4} placeholder="Medidas, quantidade, referências ou outras informações"/></label><button className="button button-primary" disabled={!selected.length||!customer.trim()} type="submit">Enviar solicitação pelo WhatsApp ↗</button><small>Você poderá anexar arquivos diretamente na conversa.</small></form></section><section className="contact" id="contato">
