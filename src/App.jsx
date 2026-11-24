@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 function CategoryIcon({index}) {
  const paths=[<><circle cx="12" cy="12" r="9"/><circle cx="8" cy="9" r="1"/><circle cx="15" cy="7" r="1"/><circle cx="16" cy="14" r="1"/><path d="M12 21v-4l-4-1"/></>,<><path d="m12 3 9 5v9l-9 5-9-5V8zM3 8l9 5 9-5M12 13v9M7.5 5.5l9 5"/></>,<><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m9 9-3 3 3 3m6-6 3 3-3 3"/></>,<><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M12 16v5m-5 0h10"/></>,<><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13M12 8C3 8 5 0 9 4l3 4c9 0 7-8 3-4z"/></>];
  return <div className={'category-icon icon-'+index}><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[index]}</svg></div>;
@@ -24,13 +25,16 @@ const projects = [
 ];
 
 export default function App() {
+  const [dark,setDark]=useState(()=>localStorage.getItem("furion-theme")==="dark");
+  const [filter,setFilter]=useState("Todos");
+  useEffect(()=>{localStorage.setItem("furion-theme",dark?"dark":"light");},[dark]);
   function handlePointerMove(event) {
     event.currentTarget.style.setProperty("--pointer-x", `${event.clientX}px`);
     event.currentTarget.style.setProperty("--pointer-y", `${event.clientY}px`);
   }
 
   return (
-    <main className="site-shell" onPointerMove={handlePointerMove}>
+    <main className={`site-shell ${dark?"dark-theme":""}`} onPointerMove={handlePointerMove}>
       <header className="site-header">
         <a className="brand-link brand-link-header" href="#inicio" aria-label="Furion - início">
           <img
@@ -45,14 +49,14 @@ export default function App() {
           <a href="#projetos">Projetos</a>
           <a href="#contato">Contato</a>
         </nav>
-        <a
+        <div className="header-actions"><button type="button" className="theme-toggle" aria-label={dark?"Ativar tema claro":"Ativar tema escuro"} aria-pressed={dark} onClick={()=>setDark(!dark)}>{dark?"☀":"☾"}</button><a
           className="header-cta"
           href="https://wa.me/5544998705407?text=Ol%C3%A1%21%20Quero%20solicitar%20um%20or%C3%A7amento."
           target="_blank"
           rel="noreferrer"
         >
           Pedir orçamento
-        </a>
+        </a></div>
       </header>
 
       <section className="hero" id="inicio">
@@ -155,8 +159,9 @@ export default function App() {
             solução pensada para o seu espaço, sua marca e seu objetivo.
           </p>
         </div>
+        <div className="project-filters" aria-label="Filtrar projetos">{["Todos",...new Set(projects.map(p=>p.tag))].map(tag=><button type="button" key={tag} aria-pressed={filter===tag} onClick={()=>setFilter(tag)}>{tag}</button>)}</div>
         <div className="project-grid">
-          {projects.map((project, index) => (
+          {projects.filter(p=>filter==="Todos"||p.tag===filter).map((project, index) => (
             <article className="project-card" key={project.title}>
               <img
                 src={project.image}
