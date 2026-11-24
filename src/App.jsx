@@ -1,9 +1,13 @@
+function CategoryIcon({index}) {
+ const paths=[<><circle cx="12" cy="12" r="9"/><circle cx="8" cy="9" r="1"/><circle cx="15" cy="7" r="1"/><circle cx="16" cy="14" r="1"/><path d="M12 21v-4l-4-1"/></>,<><path d="m12 3 9 5v9l-9 5-9-5V8zM3 8l9 5 9-5M12 13v9M7.5 5.5l9 5"/></>,<><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m9 9-3 3 3 3m6-6 3 3-3 3"/></>,<><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M12 16v5m-5 0h10"/></>,<><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13M12 8C3 8 5 0 9 4l3 4c9 0 7-8 3-4z"/></>];
+ return <div className={'category-icon icon-'+index}><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[index]}</svg></div>;
+}
 const services = [
-  {name:"FURION GRAPHIC",items:"Design gráfico, comunicação visual, envelopamento, insulfilm e cortes laser / router."},
-  {name:"FURION 3D",items:"Impressão 3D sob demanda, chaveiros, placas PIX, protótipos e peças funcionais."},
-  {name:"FURION DIGITAL",items:"Sites, landing pages, catálogos digitais e sistemas personalizados."},
-  {name:"FURION TECH",items:"Informática, manutenção, upgrades e câmeras IP Wi-Fi."},
-  {name:"FURION PERSONALIZADOS",items:"Brindes e projetos especiais. Disponibilidade mediante consulta.",consult:true},
+  {name:"Comunicação Visual",items:"Design gráfico, comunicação visual, envelopamento, insulfilm e cortes a laser e fresagem."},
+  {name:"Impressão 3D",items:"Impressão 3D sob demanda, chaveiros, placas PIX, protótipos e peças funcionais."},
+  {name:"Soluções Digitais",items:"Sites, páginas de divulgação, catálogos digitais e sistemas personalizados."},
+  {name:"Tecnologia e Informática",items:"Informática, manutenção, atualizações de hardware e câmeras IP Wi-Fi."},
+  {name:"Personalizados",items:"Brindes e projetos especiais. Disponibilidade mediante consulta.",consult:true},
 ];
 
 const projects = [
@@ -13,8 +17,8 @@ const projects = [
   { image: "/assets/project-04.png", title: "Peças personalizadas", tag: "Impressão 3D" },
   { image: "/assets/project-05.png", title: "Informática e manutenção", tag: "Informática" },
   { image: "/assets/project-06.png", title: "Comunicação visual", tag: "Comunicação visual" },
-  { image: "/assets/project-07.png", title: "Cortes com precisão", tag: "Laser / Router" },
-  { image: "/assets/project-08.png", title: "Designer gráfico", tag: "Design gráfico" },
+  { image: "/assets/project-07.png", title: "Cortes com precisão", tag: "Corte a laser e fresagem" },
+  { image: "/assets/project-08.png", title: "Design gráfico", tag: "Design gráfico" },
   { image: "/assets/project-09.png", title: "Insulfilm residencial", tag: "Insulfilm" },
   { image: "/assets/project-10.png", title: "Monitoramento inteligente", tag: "Câmeras IP" },
 ];
@@ -71,11 +75,10 @@ export default function App() {
           </h1>
           <div className="hero-copy">
             <h2>
-              Você <strong className="yellow">imagina</strong>,<br />
-              a gente <strong className="cyan">realiza</strong>.
+              Do digital<br /> ao <strong className="cyan">real.</strong>
             </h2>
             <p>
-              Tecnologia, comunicação visual e fabricação personalizada para
+              Tecnologia, comunicação visual, impressão 3D e soluções digitais para
               transformar boas ideias em projetos reais.
             </p>
           </div>
@@ -126,8 +129,8 @@ export default function App() {
         <div className="service-pills">
           {services.map((service, index) => (
             <article key={service.name}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{service.name}</h3>
+              <CategoryIcon index={index}/>
+              <h3>{service.name}</h3>{service.consult && <small className="consult-label">Sob consulta</small>}
               <p>{service.items}</p>
               <a className="sector-link" href={`https://wa.me/5544998705407?text=${encodeURIComponent("Olá! Gostaria de consultar os serviços de " + service.name)}`} target="_blank" rel="noreferrer">{service.consult ? "Consultar disponibilidade" : "Solicitar orçamento"} ↗</a>
             </article>
@@ -136,10 +139,10 @@ export default function App() {
       </section>
 
       <section className="print-section" id="impressao3d">
-        <p className="eyebrow"><span /> FURION 3D</p>
+        <p className="eyebrow"><span /> Impressão 3D</p>
         <h2>Do digital ao real.</h2>
         <p>Impressão sob demanda com Bambu Lab A1. Envie sua ideia ou arquivo para avaliação de viabilidade, material e orçamento.</p>
-        <div className="print-grid">{["Chaveiros e brindes","Placas PIX e displays","Protótipos e peças funcionais","Objetos decorativos"].map(item => <article key={item}><h3>{item}</h3><a className="sector-link" href={`https://wa.me/5544998705407?text=${encodeURIComponent("Olá! Gostaria de um orçamento 3D: " + item)}`} target="_blank" rel="noreferrer">Consultar ↗</a></article>)}</div>
+        <div className="print-grid">{["Chaveiros e brindes","Placas PIX e expositores","Protótipos e peças funcionais","Objetos decorativos"].map(item => <article key={item}><h3>{item}</h3><a className="sector-link" href={`https://wa.me/5544998705407?text=${encodeURIComponent("Olá! Gostaria de um orçamento 3D: " + item)}`} target="_blank" rel="noreferrer">Consultar ↗</a></article>)}</div>
       </section>
       <section className="portfolio" id="projetos">
         <div className="portfolio-heading">
