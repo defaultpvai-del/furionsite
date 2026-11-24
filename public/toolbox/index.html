@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ferramentas gratuitas para criar QR Codes, editar PDFs, preparar imagens e gerar links. Tudo direto no navegador.">
+  <meta name="theme-color" content="#f8f7f3">
+  <title>Furion Toolbox — Ferramentas para o dia a dia</title>
+  <link rel="icon" href="mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/qr.js" defer></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#inicio" aria-label="Furion Toolbox, início">
+        <img src="mark.svg" width="40" height="40" alt="">
+        <span>FURION<span>TOOLBOX</span></span>
+      </a>
+      <nav id="navigation" aria-label="Categorias de ferramentas"></nav>
+      <div class="sidebar-foot">
+        <div class="privacy"><span id="privacy-icon"></span><div><strong>Arquivos no seu dispositivo</strong><span>Processamento local no navegador.</span></div></div>
+        <div class="side-note">FURION TOOLBOX <span>© 2026</span></div>
+      </div>
+    </aside>
+    <main id="inicio">
+      <header class="topbar">
+        <div class="breadcrumb"><span id="home-icon"></span><span class="slash">/</span><span id="breadcrumb-text">Visão geral</span></div>
+        <div class="top-actions">
+          <form class="search" role="search">
+            <span id="search-icon"></span>
+            <input id="search" type="search" placeholder="Buscar ferramentas…" aria-label="Buscar ferramentas" autocomplete="off">
+            <kbd aria-hidden="true">/</kbd>
+          </form>
+          <button id="theme" class="icon-button theme" type="button" aria-label="Ativar tema escuro"></button>
+        </div>
+      </header>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <span class="hero-tag"><i></i> Grátis e sem cadastro</span>
+          <h1 id="hero-title">Ferramentas úteis.<br><em>Sem complicação.</em></h1>
+          <p>Crie QR Codes, edite PDFs, prepare artes para impressão e resolva tarefas do dia a dia direto no navegador.</p>
+          <a class="primary" href="#ferramentas">Explorar ferramentas <span id="arrow-down"></span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-grid"></div>
+          <div class="art-spark art-spark-a">✦</div><div class="art-spark art-spark-b">✦</div>
+          <div class="art-paper"><div class="art-file-top"><span id="art-file-icon"></span><strong>PDF</strong></div><i></i><i></i><i></i></div>
+          <div class="art-qr"><canvas id="hero-qr" width="132" height="132"></canvas></div>
+          <div class="art-link"><span id="art-link-icon"></span><i></i><i></i></div>
+          <div class="art-plus">+</div>
+        </div>
+      </section>
+      <section id="ferramentas" class="catalog" aria-labelledby="catalog-title">
+        <div class="catalog-heading"><h2 id="catalog-title">Todas as ferramentas</h2><span id="tool-count"></span></div>
+        <nav id="filters" aria-label="Filtrar ferramentas"></nav>
+        <div id="cards" class="cards"></div>
+        <p id="empty" class="empty" hidden>Nenhuma ferramenta encontrada. Tente buscar por QR, PDF, imagem ou link.</p>
+      </section>
+      <footer class="footer"><span>Furion Toolbox</span><span>Grátis · Sem cadastro · Processamento local</span></footer>
+    </main>
+  </div>
+  <dialog id="tool-dialog" aria-labelledby="tool-title">
+    <div class="dialog-header">
+      <div id="tool-icon" class="tile-icon"></div>
+      <div><h2 id="tool-title"></h2><p id="tool-description"></p></div>
+      <button class="icon-button" id="close-tool" type="button" aria-label="Fechar ferramenta"></button>
+    </div>
+    <div class="dialog-body" id="tool-body"></div>
+  </dialog>
+</body>
+</html>

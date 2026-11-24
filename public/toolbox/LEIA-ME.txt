@@ -1,0 +1,34 @@
+FURION TOOLBOX
+Site completo com 41 ferramentas
+
+COMO PUBLICAR NO GITHUB PAGES
+
+1. Extraia este arquivo ZIP.
+2. Envie todos os arquivos e a pasta vendor para a raiz do repositório.
+   O arquivo index.html deve ficar na raiz.
+3. Inclua também o arquivo .nojekyll.
+4. Nas configurações do repositório, abra Pages e selecione a publicação
+   pela branch main, pasta / (root).
+5. Abra o endereço informado pelo GitHub Pages após a publicação.
+
+COMO ABRIR NO COMPUTADOR
+
+Use um servidor local para carregar os módulos JavaScript.
+Com Python instalado, abra o terminal na pasta extraída e execute
+
+    python -m http.server 8000
+
+No Windows, também é possível usar
+
+    py -m http.server 8000
+
+Depois, abra http://localhost:8000 no navegador.
+Abrir o index.html diretamente por duplo clique pode bloquear os módulos.
+
+CONTEÚDO
+
+O arquivo index.html, os estilos, o código das ferramentas, fontes,
+bibliotecas de PDF e QR Code e suas licenças estão incluídos.
+O site processa os arquivos no navegador.
+
+As bibliotecas de terceiros mantêm suas licenças na pasta vendor.
