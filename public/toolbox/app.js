@@ -191,7 +191,7 @@ function showTheme(mode) {
   theme.innerHTML = icon(mode === 'dark' ? 'sun' : 'moon');
   theme.setAttribute('aria-label', mode === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro');
 }
-let initialTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+let initialTheme = 'dark';
 try { initialTheme = localStorage.getItem('furion-toolbox-theme') || initialTheme; } catch {}
 showTheme(initialTheme);
 theme.onclick = () => {
