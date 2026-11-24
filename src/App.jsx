@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 function CategoryIcon({index}) {
- const paths=[<><circle cx="12" cy="12" r="9"/><circle cx="8" cy="9" r="1"/><circle cx="15" cy="7" r="1"/><circle cx="16" cy="14" r="1"/><path d="M12 21v-4l-4-1"/></>,<><path d="m12 3 9 5v9l-9 5-9-5V8zM3 8l9 5 9-5M12 13v9M7.5 5.5l9 5"/></>,<><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m9 9-3 3 3 3m6-6 3 3-3 3"/></>,<><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M12 16v5m-5 0h10"/></>,<><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13M12 8C3 8 5 0 9 4l3 4c9 0 7-8 3-4z"/></>];
+ const paths=[<><circle cx="12" cy="12" r="9"/><circle cx="8" cy="9" r="1"/><circle cx="15" cy="7" r="1"/><circle cx="16" cy="14" r="1"/><path d="M12 21v-4l-4-1"/></>,<><path d="m12 3 9 5v9l-9 5-9-5V8zM3 8l9 5 9-5M12 13v9M7.5 5.5l9 5"/></>,<><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m9 9-3 3 3 3m6-6 3 3-3 3"/></>,<><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M12 16v5m-5 0h10"/></>,<><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13M12 8C3 8 5 0 9 4l3 4c9 0 7-8 3-4z"/></>,<><path d="M12 3 3 7v5c0 5 4 8 9 10 5-2 9-5 9-10V7z"/><rect x="7" y="9" width="8" height="6" rx="1"/><path d="m15 11 3-2v6l-3-2"/></>];
  return <div className={'category-icon icon-'+index}><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[index]}</svg></div>;
 }
 const services = [
   {name:"Comunicação Visual",items:"Design gráfico, comunicação visual, envelopamento, insulfilm e cortes a laser e fresagem."},
   {name:"Impressão 3D",items:"Impressão 3D sob demanda, chaveiros, placas PIX, protótipos e peças funcionais."},
   {name:"Soluções Digitais",items:"Sites, páginas de divulgação, catálogos digitais e sistemas personalizados."},
-  {name:"Tecnologia e Informática",items:"Informática, manutenção, atualizações de hardware e câmeras IP Wi-Fi."},
+  {name:"Tecnologia e Informática",items:"Informática, manutenção e atualizações de hardware."},
   {name:"Personalizados",items:"Brindes e projetos especiais. Disponibilidade mediante consulta.",consult:true},
+  {name:"Segurança e Tecnologia",items:"Câmeras IP Wi-Fi, dispositivos inteligentes e soluções de monitoramento."},
 ];
 
 const projects = [
@@ -25,9 +26,9 @@ const projects = [
 ];
 
 export default function App() {
-  const [dark,setDark]=useState(()=>localStorage.getItem("furion-theme")==="dark");
+  const [dark,setDark]=useState(()=>localStorage.getItem("furion-theme-v2")!=="light");
   const [filter,setFilter]=useState("Todos");
-  useEffect(()=>{localStorage.setItem("furion-theme",dark?"dark":"light");},[dark]);
+  useEffect(()=>{localStorage.setItem("furion-theme-v2",dark?"dark":"light");},[dark]);
   function handlePointerMove(event) {
     event.currentTarget.style.setProperty("--pointer-x", `${event.clientX}px`);
     event.currentTarget.style.setProperty("--pointer-y", `${event.clientY}px`);
