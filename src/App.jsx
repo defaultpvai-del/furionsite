@@ -3,6 +3,16 @@ function CategoryIcon({index}) {
  const paths=[<><circle cx="12" cy="12" r="9"/><circle cx="8" cy="9" r="1"/><circle cx="15" cy="7" r="1"/><circle cx="16" cy="14" r="1"/><path d="M12 21v-4l-4-1"/></>,<><path d="m12 3 9 5v9l-9 5-9-5V8zM3 8l9 5 9-5M12 13v9M7.5 5.5l9 5"/></>,<><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m9 9-3 3 3 3m6-6 3 3-3 3"/></>,<><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M12 16v5m-5 0h10"/></>,<><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13M12 8C3 8 5 0 9 4l3 4c9 0 7-8 3-4z"/></>,<><path d="M12 3 3 7v5c0 5 4 8 9 10 5-2 9-5 9-10V7z"/><rect x="7" y="9" width="8" height="6" rx="1"/><path d="m15 11 3-2v6l-3-2"/></>];
  return <div className={'category-icon icon-'+index}><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[index]}</svg></div>;
 }
+function SectorMotion({index}) {
+ const shapes=[
+ <g className="sm-ink"><circle cx="43" cy="39" r="23" fill="#00d8ef"/><circle cx="76" cy="39" r="23" fill="#ff1dbf"/><circle cx="60" cy="65" r="23" fill="#f5df00"/></g>,
+ <g className="sm-stack">{[0,1,2,3,4].map(i=><path key={i} style={{animationDelay:i*.22+"s"}} d={`M25 ${70-i*10} 60 ${87-i*10} 95 ${70-i*10} 60 ${53-i*10}Z`} fill="#00e7e7" fillOpacity=".12" stroke="#00c9dc"/>)}</g>,
+ <g><rect x="20" y="19" width="80" height="65" rx="9" fill="none" stroke="#a88aff"/><path d="M20 34H100" stroke="#a88aff"/><g className="sm-code" stroke="#00d8ef" strokeWidth="3" strokeLinecap="round"><path d="M32 45H55M32 56H83M42 67H73"/></g><path className="sm-cursor" d="M79 64v8" stroke="#ff1dbf" strokeWidth="3"/></g>,
+ <g fill="none" stroke="#00c9dc"><rect x="43" y="35" width="34" height="34" rx="5"/><path d="M43 43H25V20H10M43 60H18V82H8M77 43H95V20H110M77 60H100V82H112M53 35V12M67 69V92"/><g className="sm-pulse" fill="#00e7e7"><circle cx="10" cy="20" r="3"/><circle cx="110" cy="20" r="3"/><circle cx="8" cy="82" r="3"/><circle cx="112" cy="82" r="3"/><circle cx="60" cy="52" r="7"/></g></g>,
+ <g className="sm-gift"><rect x="34" y="38" width="52" height="45" rx="7" fill="#ff1dbf" fillOpacity=".15" stroke="#ff69ce"/><path d="M30 38H90V48H30ZM60 38V83M60 38C27 36 41 9 60 38C79 9 93 36 60 38" fill="none" stroke="#ff69ce" strokeWidth="2"/><path className="sm-spark" d="M99 19v16m-8-8h16M18 65v12m-6-6h12" stroke="#e8d800" strokeWidth="2"/></g>,
+ <g fill="none" stroke="#00cba0"><circle cx="60" cy="51" r="39"/><circle cx="60" cy="51" r="26" opacity=".5"/><circle cx="60" cy="51" r="13" opacity=".5"/><path d="M21 51H99M60 12V90" opacity=".3"/><g className="sm-radar"><path d="M60 51 60 12A39 39 0 0 1 99 51Z" fill="#00cba0" fillOpacity=".2" stroke="none"/><path d="M60 51H99" strokeWidth="2"/></g><circle className="sm-pulse" cx="77" cy="33" r="4" fill="#00cba0"/></g>];
+ return <div className={"sector-motion sector-motion-"+index} aria-hidden="true"><svg viewBox="0 0 120 100" fill="none">{shapes[index]}</svg></div>;
+}
 const services = [
   {name:"Comunicação Visual",items:"Design gráfico, comunicação visual, envelopamento, insulfilm e cortes a laser e fresagem."},
   {name:"Impressão 3D",items:"Impressão 3D sob demanda, chaveiros, placas PIX, protótipos e peças funcionais."},
@@ -55,7 +65,7 @@ export default function App() {
           <a href="#servicos">Serviços</a>
           <a href="#impressao3d">Impressão 3D</a>
           <a href="#projetos">Projetos</a>
-          <a href="#seguranca">Segurança</a><a href="#contato">Contato</a>
+          <a href="#seguranca">Toolbox</a><a href="#contato">Contato</a>
         </nav>
         <div className="header-actions"><button className="mobile-menu" type="button" aria-label={menu?"Fechar menu":"Abrir menu"} aria-expanded={menu} onClick={()=>setMenu(!menu)}>{menu?"×":"☰"}</button><button type="button" className="theme-toggle" aria-label={dark?"Ativar tema claro":"Ativar tema escuro"} aria-pressed={dark} onClick={()=>setDark(!dark)}>{dark?"☀":"☾"}</button><a
           className="header-cta"
@@ -138,7 +148,7 @@ export default function App() {
         </div>
         <div className="service-pills">
           {services.map((service, index) => (
-            <article key={service.name}>
+            <article key={service.name} className={"animated-sector sector-"+index}><SectorMotion index={index}/>
               <CategoryIcon index={index}/>
               <h3>{service.name}</h3>{service.consult && <small className="consult-label">Sob consulta</small>}
               <p>{service.items}</p>
