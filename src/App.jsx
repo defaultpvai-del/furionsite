@@ -53,16 +53,9 @@ export default function App() {
 
   return (
     <main className={`site-shell ${dark?"dark-theme":""}`} onPointerMove={handlePointerMove}>
-      <header className="site-header">
-        <a className="brand-link brand-link-header" href="#inicio" aria-label="Furion - início">
-          <img
-            className="official-logo"
-            src="./assets/furion-logo.svg"
-            alt="Furion"
-          />
-        </a>
+      <header className="site-header floating-header">
         <nav aria-label="Navegação principal" className={menu?"mobile-open":""} onClick={()=>setMenu(false)}>
-          <a href="#servicos">Serviços</a>
+          <a href="#inicio" className="nav-home">Início</a><a href="#servicos">Serviços</a>
           <a href="#impressao3d">Impressão 3D</a>
           <a href="#projetos">Destaques</a>
           <a href="#seguranca">Toolbox</a><a href="#contato">Contato</a>
