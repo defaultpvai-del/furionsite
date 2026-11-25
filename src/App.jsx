@@ -183,29 +183,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className="process" id="como-funciona">
-        <div className="section-heading">
-          <p className="eyebrow"><span /> Simples e direto</p>
-          <h2>Do orçamento à entrega.</h2><p className="process-intro">Três etapas para transformar sua ideia em realidade.</p>
-        </div>
-        <div className="process-grid">
-          <article>
-            <span className="step-number">01</span>
-            <h3>Conte sua ideia</h3>
-            <p>Chame no WhatsApp, envie referências e explique o que precisa.</p>
-          </article>
-          <article>
-            <span className="step-number">02</span>
-            <h3>Receba a solução</h3>
-            <p>Avaliamos o projeto, os materiais e apresentamos seu orçamento.</p>
-          </article>
-          <article>
-            <span className="step-number">03</span>
-            <h3>Veja acontecer</h3>
-            <p>Produzimos com cuidado e combinamos a instalação ou entrega.</p>
-          </article>
-        </div><div className="process-action"><a className="button button-primary" href="https://wa.me/5544998705407?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noreferrer">Começar meu projeto ↗</a></div>
-      </section>
+      <section className="process process-journey" id="como-funciona"><div className="section-heading"><p className="eyebrow"><span/> Simples e direto</p><h2>Do orçamento <span className="journey-accent">à entrega.</span></h2><p className="process-intro">Três etapas para transformar sua ideia em realidade.</p></div><div className="journey-track" aria-hidden="true"><i/><i/><i/></div><div className="process-grid">{[{title:"Conte sua ideia",desc:"Chame no WhatsApp, envie referências e explique o que precisa."},{title:"Receba a solução",desc:"Avaliamos o projeto, os materiais e apresentamos seu orçamento."},{title:"Veja acontecer",desc:"Produzimos com cuidado e combinamos a instalação ou entrega."}].map((step,i)=><article className={"journey-card journey-"+i} key={step.title}><div className="journey-art" aria-hidden="true"><svg viewBox="0 0 220 120" fill="none">{i===0?<g><rect x="35" y="18" width="105" height="54" rx="13" stroke="currentColor" fill="currentColor" fillOpacity=".08"/><path d="M49 72v13l19-13" stroke="currentColor"/>{[0,1,2].map(n=><circle className="journey-dot" key={n} style={{animationDelay:n*.25+"s"}} cx={65+n*20} cy="45" r="4" fill="currentColor"/>)}<g className="journey-reply"><rect x="100" y="67" width="84" height="35" rx="10" fill="#20232b" stroke="currentColor"/><path d="M115 80h52m-52 9h30" stroke="currentColor" strokeLinecap="round"/></g></g>:i===1?<g><rect x="67" y="10" width="86" height="100" rx="12" stroke="currentColor" fill="currentColor" fillOpacity=".07"/>{[0,1,2].map(n=><g className="journey-line" key={n} style={{animationDelay:n*.4+"s"}}><path d={`M82 ${34+n*22}l4 4 7-8M102 ${35+n*22}h34`} stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></g>)}</g>:<g><path d="M65 42l45-23 45 23v48l-45 23-45-23zM65 42l45 23 45-23M110 65v48M87 30l45 23" stroke="currentColor" strokeWidth="1.7" fill="currentColor" fillOpacity=".06"/><g className="journey-check"><circle cx="158" cy="29" r="19" fill="#16352b" stroke="#75e5ac"/><path d="M149 29l6 6 12-13" stroke="#75e5ac" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></g></g>}</svg></div><span className="step-number">0{i+1}</span><h3>{step.title}</h3><p>{step.desc}</p></article>)}</div><div className="process-action journey-action"><a className="button button-primary" href="https://wa.me/5544998705407?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noreferrer">Começar meu projeto ↗</a><small>Atendimento direto, do início ao fim.</small></div></section>
 
       <section className="contact" id="contato">
         <div className="contact-spectrum" aria-hidden="true">
