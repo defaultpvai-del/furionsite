@@ -149,7 +149,6 @@ export default function App() {
         <div className="service-pills">
           {services.map((service, index) => (
             <article key={service.name} className={"animated-sector sector-"+index}><SectorMotion index={index}/>
-              <CategoryIcon index={index}/>
               <h3>{service.name}</h3>{service.consult && <small className="consult-label">Sob consulta</small>}
               <p>{service.items}</p>
               <a className="sector-link" href={`https://wa.me/5544998705407?text=${encodeURIComponent("Olá! Gostaria de consultar os serviços de " + service.name)}`} target="_blank" rel="noreferrer">{service.consult ? "Consultar disponibilidade" : "Solicitar orçamento"} ↗</a>
