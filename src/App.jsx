@@ -75,7 +75,7 @@ export default function App() {
         </a></div>
       </header>
 
-      <section className="hero" id="inicio">
+      <section className="hero hero-evolution" id="inicio">
         <div className="cmyk-field" aria-hidden="true">
           <span className="cmyk-blob blob-cyan" />
           <span className="cmyk-blob blob-magenta" />
@@ -95,11 +95,10 @@ export default function App() {
           </h1>
           <div className="hero-copy">
             <h2>
-              Do digital<br /> ao <strong className="cyan">real.</strong>
+              Grandes ideias.<br /><strong className="cyan">Infinitas possibilidades.</strong>
             </h2>
             <p>
-              Tecnologia, comunicação visual, impressão 3D e soluções digitais para
-              transformar boas ideias em projetos reais.
+              Unimos criatividade, tecnologia e produção para transformar o que você imagina em realidade.
             </p>
           </div>
           <div className="hero-actions">
@@ -121,20 +120,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="hero-visual" aria-hidden="true">
-          <div className="sculpture-ring ring-one" />
-          <div className="sculpture-ring ring-two" />
-          <img
-            className="cmyk-sculpture"
-            src="./assets/cmyk-sculpture.png"
-            alt=""
-          />
-          <span className="floating-tag tag-design">Design</span>
-          <span className="floating-tag tag-tech">Tecnologia</span>
-          <span className="floating-tag tag-make">Produção</span>
-          <p className="visual-stamp">CRIAÇÃO EM MOVIMENTO</p>
-        </div>
-
+        <div className="hero-visual hero-universe" aria-hidden="true"><div className="universe-orbit"/><div className="universe-core"><img src="./assets/furion-logo.svg" alt=""/><small>IDEIAS EM MOVIMENTO</small></div>{[projects[3],projects[5],projects[4],projects[7]].map((item,i)=><div className={"universe-tile universe-tile-"+i} key={item.title}><img src={item.image} alt=""/><span>{["IMPRESSÃO 3D","COMUNICAÇÃO VISUAL","TECNOLOGIA","DESIGN"][i]}</span></div>)}</div>
         <a className="scroll-hint" href="#servicos">
           <span>Explorar</span>
           <span aria-hidden="true">↓</span>
